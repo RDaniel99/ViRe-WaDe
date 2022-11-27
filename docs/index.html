@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <title>VIRE Scholarly technical report</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body prefix="schema: http://schema.org/ sa: https://ns.science.ai/">
+  <div class='container'>
+    <article typeof="schema:ScholarlyArticle">
+      <div class="text-center">
+        <h1>VIRE Technical Report!</h1>
+      </div>
+
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link">Rusu Iulian-Daniel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Simion Andra</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Stativa Camelia-Georgiana</a>
+        </li>
+      </ul>
+
+      <!-- 1. Project description -->
+      <div class="row mt-2">
+        <section typeof="sa:Description">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">1. Project description</h2>
+              <blockquote>
+                <p>
+                  Build a (micro-)service Web system able to "intelligently" recommend – by exposing a SPARQL endpoint –
+                  vinyl music
+                  records according to various criteria: user preferences (specified via controlled natural language
+                  constructs such as
+                  "I always like/love/prefer classical music, especially opera music by Rossini or Verdi and performed
+                  by
+                  Angela Gheorghiu or
+                  Juan Diego Flórez; I sometimes like progressive rock and post-rock; I like only metal albums released
+                  before 2000;
+                  I always dislike/hate rap and hip-hop; I dislike songs produced by Flood in the last 25 years"),
+                  past song purchases on various music stores, playlists – available online via music streaming
+                  services:
+                  Last.fm and
+                  alternative solutions – and/or locally – for instance, by uploading a JSPF/XSPF document.
+                  The playlists could be created by the user or shared by her/his virtual "friends" (consider at least
+                  one
+                  social network).
+                  The system will use several music-related knowledge models (e.g., Music Ontology or MusicRecording
+                  concept
+                  from schema.org)
+                  and available public resources: Discogs, MusicBrainz, Musicmoz Music Styles.
+                </p>
+              </blockquote>
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 2. Architecture of the Web application -->
+      <div class="row mt-2">
+        <section typeof="sa:Arhitecture">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">2. Architecture of the Web application</h2>
+              <blockquote>
+                <p>High Level Arhitecture from first draft to final version</p>
+              </blockquote>
+              <div id="myCarousel" class="carousel carousel-dark slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="currentArh.png" alt="Current Arhitecture" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Current Arhitecture Page</h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="firstArh.png" alt="First Arhitecture" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Draft Arhitecture Page</h3>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <h3 class="card-title">Database arhitecture</h3>
+
+                <div class="item">
+                  <img src="db.PNG" alt="database" style="width:100%;">
+                </div>
+
+                <div class="item">
+                  <pre>
+                    <code>
+
+                      Table vire.users {
+                        id int [pk, increment]
+                        first_name varchar
+                        last_name varchar
+                        country_code int
+                        email varchar
+                        password varchar
+                        created_at timestamp
+                        modified_at timestamp
+                      }
+
+                      Table vire.playlists {
+                        id int [pk, increment]
+                        owner_id int [ref: > vire.users.id]
+                        name varchar
+                        created_at timestamp
+                        modified_at timestamp
+                      }
+
+                      Table vire.playlists_users {
+                        playlist_id int [ref: > vire.playlists.id]
+                        user_id int [ref: > vire.users.id]
+                      }
+
+                      Table vire.songs {
+                        id int [pk, increment]
+                        singer varchar
+                        release_date timestamp
+                        genre varchar
+                      }
+
+                      Table vire.playlists_songs {
+                        playlist_id int [ref: > vire.playlists.id]
+                        song_id int [ref: > vire.songs.id]
+                      }
+
+                  </code>
+                </pre>
+              </div>
+              <h3 class="card-title">Main Backend Modules</h3>
+              <h3 class="card-title">Recommandation Module</h3>
+              <h3 class="card-title">User Module</h3>
+
+            <p>
+              This module role is to maintain the functionality needed for users like login, register etc.
+            </p>
+            <p>
+              The arhitecture of the service is the following:
+            </p>
+            <div class="item">
+              <img src="arhUserService.PNG" alt="userService" style="width:100%;">
+            </div>
+            <p>  
+              Open API: <a href="./user-service-swagger/index.html">Here</a>
+            </p>
+
+            <h3 class="card-title">Playlist Module</h3>
+            <p>
+              This module role is to maintain the functionality needed for playlists like create, edit etc.
+            </p>
+            <p>
+              The arhitecture of the service is the following:
+            </p>
+            <div class="item">
+              <img src="arhPlaylistService.PNG" alt="playlistService" style="width:100%;">
+            </div>
+            <p>
+              Open API: <a href="./playlist-service-swagger/index.html">Here</a>
+            </p>
+            </div>
+        </section>
+      </div>
+
+      <!-- 3. Frontend Design -->
+      <div class="row mt-2">
+        <section typeof="sa:UiDesign">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">3. Frontend Design</h2>
+              <h3 class="card-title">UI Mockup</h3>
+
+              <div id="uiCarousel" class="carousel carousel-dark slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#uiCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#uiCarousel" data-slide-to="1"></li>
+                  <li data-target="#uiCarousel" data-slide-to="2"></li>
+                  <li data-target="#uiCarousel" data-slide-to="3"></li>
+                  <li data-target="#uiCarousel" data-slide-to="4"></li>
+                  <li data-target="#uiCarousel" data-slide-to="5"></li>
+                </ol>
+
+
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="landingPage.png" alt="Landing" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Home Page</h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="loginPage.png" alt="Login" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Login Page</h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="registerPage.png" alt="Register" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Register Page</h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="pastPage.png" alt="Past" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Recommendation from past purchases Page</h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="playlistPage.png" alt="Playlist" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Playlist Page</h3>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="profilePage.png" alt="Profile" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Profile Page</h3>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#uiCarousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#uiCarousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 4. Final Users -->
+      <div class="row mt-2">
+        <section typeof="sa:UseCase">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">4. Final Users</h2>
+
+              <h3 class="card-title">User Description</h3>
+              <blockquote>
+                <p>An end user is a person who uses a product or service. This individual isn't necessarily the one who
+                  purchases a product but the one who ultimately uses it.
+                  For our application we have two main end users: </p>
+                <ol>
+                  <li>A person that shows interest in music and wants to discover more and more music similar to his
+                    taste
+                  </li>
+                  <li>Developer that wants to integrate a music recommandation component in his application</li>
+                </ol>
+              </blockquote>
+
+              <h3 class="card-title">Use Case Diagram</h3>
+              <blockquote>
+                <p>How the user will interact with the application:</p>
+
+                <img class="img-fluid" src="./use-case.png" alt="Use case diagram">
+              </blockquote>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 5. REST and GraphQL API for our services -->
+      <div class="row mt-2">
+        <section typeof="sa:OpenApi">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">5. REST and GraphQL API for our services</h2>
+
+              <h3 class="card-title">User API</h3>
+              <blockquote>
+                <p>link o the openAPI definition? </p>
+              </blockquote>
+
+              <h3 class="card-title">Playlist API</h3>
+              <blockquote>
+                <p>link o the openAPI definition? </p>
+              </blockquote>
+
+              <h3 class="card-title">Recommandation API</h3>
+              <blockquote>
+                <p>link o the openAPI definition? </p>
+              </blockquote>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 6. External Data Sources -->
+      <div class="row mt-2">
+        <section typeof="sa:ExternalDataSource">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">6. External Data Sources</h2>
+              <blockquote>
+                <p>
+                  We'll be using some external APIs in order to make vinyl recommendation to the user.
+                </p>
+                <p>
+                  We should be able to reccomend the user some vinyls based on the past song purchases on various music
+                  stores.
+                  In order to achieve this we plan on using the <b><a href="https://www.discogs.com/developers/">Discogs
+                      API</a></b>.
+                </p>
+                <p>
+                  Also, we will suggest some vinyls to the user based on the playlists he owns on different platforms
+                  We chose to get this information from the music streaming service <b><a href="https://www.last.fm/api/playlists">Last.fm Playlists</a></b>.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 7. Ontology and Vocabularies -->
+      <div class="row mt-2">
+        <section typeof="sa:Vocabulary">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">7. Ontology and Vocabularies</h2>
+              <blockquote>
+                <p>We'll make use of the following ontology and vocabularies in order to model our business case. Some
+                  of
+                  them are needed for the Music Ontology that we use.</p>
+                <ul>
+                  <li><b>PREFIX schema</b>: https://schema.org/ </li>
+                  <li><b>PREFIX rdf</b>: http://www.w3.org/1999/02/22-rdf-syntax-ns# </li>
+                  <li><b>PREFIX rdfs</b>: http://www.w3.org/2000/01/rdf-schema# </li>
+                  <li><b>PREFIX xsd</b>: http://www.w3.org/2001/XMLSchema# </li>
+                  <li><b>PREFIX mo</b>: http://purl.org/ontology/mo/ </li>
+                  <li><b>PREFIX dc</b>: http://purl.org/dc/elements/1.1/</li>
+                  <li><b>PREFIX tl</b>: http://purl.org/NET/c4dm/timeline.owl#</li>
+                  <li><b>PREFIX event</b>: http://purl.org/NET/c4dm/event.owl#</li>
+                  <li><b>PREFIX foaf</b>: http://xmlns.com/foaf/0.1/</li>
+                </ul>
+              </blockquote>
+
+              <h3 class="card-title">Vinyl Resource graph</h3>
+              <blockquote>
+                <ul>
+                  <li><b>rdfs: subClassOf</b> defines a subclass of the class MusicRecording from schema.org</li>
+                  <li><b>schema: byArtist</b> represent the artist that performed this album or recording</li>
+                  <li><b>mo:Genre</b> an expressive style of music represented by any text or a reference to a DBPedia
+                    genre (such as http://dbpedia.org/resource/Baroque_music), allowing semantic web clients to access
+                    easily really detailed structured information about the genre you are refering to.</li>
+                  <li><b>schema: member</b> Represents a member of the MusicGroup.</li>
+                  <li><b>schema: givenName</b> Represetns the first name of a Person, more accurate of the artist</li>
+                </ul>
+                <img class="img-fluid" src="./vinyl-graph.png" alt="Vinyl Graph">
+              </blockquote>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 8. Linked Data principles -->
+      <div class="row mt-2">
+        <section typeof="sa:LinkedDataPrinciples">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">8. Linked Data Principles</h2>
+              <blockquote>
+                <p>
+                  <b>Linked Data</b> refers to a set of recommended practices for publishing structured data on the Web.
+                  In order to contribute to an environment where
+                  information is easily accessible, data should first be made available in a standard format that can be
+                  reached and processed by Semantic Web tools. This
+                  is achieved by respecting the four principles of Linked Data:
+                <ul>
+                  <li>Use Uniform Resource Identifiers (URIs) as names for things</li>
+                  <li>Use HTTP URIs so that people can look up those names</li>
+                  <li>Provide information using Semantic Web technologies such as RDF, OWL, SPARQL etc.</li>
+                  <li>Include links to other URIs to make other data discoverable</li>
+                </ul>
+
+                <p>Vire will make use of a few of these principles in the following manners:</p>
+                <ul>
+                  <li>URIs will be properly used to name the pages which facilitates the search for named data</li>
+                  <li>The data used for our resources has been modeled using the <b>Music Ontology</b> and
+                    <b>Schema.org</b> vocabulary.
+                  </li>
+                  <li>Entries on the songs, vinyls and artists will be linked and will redirect the user to other
+                    sources of information so he can discover more about that resource.</li>
+                </ul>
+                </p>
+              </blockquote>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 9. Bibliography -->
+      <div class="row mt-2">
+        <section typeof="sa:Bibliography">
+          <div class="card text-bg-light mb-3">
+            <div class="card-body">
+              <h2 class="card-title">9. Bibliography</h2>
+              <blockquote>
+                <ol>
+                  <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://www.w3.org/TR/sparql11-protocol/"
+                    property="schema:citation" id="sparql-proto">
+                    <cite property="schema:name">
+                      <a href="https://www.w3.org/TR/sparql11-protocol/">The SPARQL 1.1 Protocol</a>
+                    </cite>
+                  </li>
+
+                  <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://www.w3.org/RDF/"
+                    property="schema:citation" id="rdf">
+                    <cite property="schema:name">
+                      <a href="https://www.w3.org/RDF/">RDF (Resource Description Framework) standard model</a>
+                    </cite>
+                  </li>
+
+                  <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://schema.org/"
+                    property="schema:citation" id="schemaorg">
+                    <cite property="schema:name">
+                      <a href="https://schema.org/">The schema.org vocabulary</a>
+                    </cite>
+                  </li>
+
+                  <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://schema.org/"
+                    property="schema:citation" id="musicontology">
+                    <cite property="schema:name">
+                      <a href="http://musicontology.com/">Music Ontology</a>
+                    </cite>
+                  </li>
+
+                  <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://schema.org/"
+                    property="schema:citation" id="discogs">
+                    <cite property="schema:name">
+                      <a href="https://www.discogs.com/developers/">Discogs</a>
+                    </cite>
+                  </li>
+
+                  <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://schema.org/"
+                    property="schema:citation" id="lastfm">
+                    <cite property="schema:name">
+                      <a href="https://www.last.fm/api/playlists">LastFM</a>
+                    </cite>
+                  </li>
+
+                  <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://schema.org/"
+                    property="schema:citation" id="lastfm">
+                    <cite property="schema:name">
+                      <a href="https://xspf.org/">XSPF</a>
+                    </cite>
+                  </li>
+
+                </ol>
+              </blockquote>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+</body>
+
+</html>
