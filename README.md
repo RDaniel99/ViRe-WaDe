@@ -16,7 +16,7 @@ The system will use several music-related knowledge models (e.g., [Music Ontolog
 ## Design and arhitecture
 
 * Arhitecture of the web application:
-* OpenAPI specification regarding the REST API – or, alternatively, a schema for the GraphQL API : [OpenApi](https://app.swaggerhub.com/apis/RDaniel99/ViRe-Playlist-Service/1.0.0?fbclid=IwAR0LG01XfMaggJ0_xbH8rFLELlrVSD5cPfWWnsC_OZdmlzU6akS3RSu80Lo), all of them can be found in the report
+* OpenAPI specification regarding the REST API – or, alternatively, a schema for the GraphQL API and Open API available in the technical report, all of them can be found in the report
 * Technical report: https://stativacamelia.github.io/vire/
 * Project progress: https://github.com/RDaniel99/ViRe-WaDe/wiki/First-deliverable-status-page
 
