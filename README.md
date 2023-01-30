@@ -18,7 +18,8 @@ The system will use several music-related knowledge models (e.g., [Music Ontolog
 * Arhitecture of the web application:
 * OpenAPI specification regarding the REST API – or, alternatively, a schema for the GraphQL API and Open API available in the technical report, all of them can be found in the report
 * Updated Technical report: https://rdaniel99.github.io/ViRe-WaDe/
-* Project progress: https://github.com/RDaniel99/ViRe-WaDe/wiki/First-deliverable-status-page 
+* Project progress intermediate: https://github.com/RDaniel99/ViRe-WaDe/wiki/First-deliverable-status-page 
+* Project progress final: https://github.com/RDaniel99/ViRe-WaDe/wiki/Final-deliverables-progress
 * Trello board: https://trello.com/b/cuiN0NpG/wade
 
 ## Repositories
