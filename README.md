@@ -26,15 +26,13 @@ The system will use several music-related knowledge models (e.g., [Music Ontolog
 
 * Intermediate Scholarly HTML technical report -> https://github.com/StativaCamelia/vire 
 * Sparql Endpoint, Recommendation Service and Discogs Integration -> https://github.com/StativaCamelia/Recommandation
-* User Service -> https://github.com/RDaniel99/User-Microservice-WaDe
-* Playlist Service -> TO DO
+* User and Playlist Service -> https://github.com/RDaniel99/User-Microservice-WaDe
 * UI Application -> https://github.com/StativaCamelia/vire-front
 
 ## Deployed Service
 
 * Recommendation Service -> http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html
 * Sparql Endpoint -> http://recommendationendpoints.uc.r.appspot.com/recommendationSparQL
-* User Service -> TO DO
-* Playlist Service -> TO DO
+* User and Playlist Service -> https://user-microservice-wade.herokuapp.com/
 * UI Aplication -> TO DO
 
