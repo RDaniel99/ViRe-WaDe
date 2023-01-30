@@ -20,11 +20,19 @@ The system will use several music-related knowledge models (e.g., [Music Ontolog
 * Updated Technical report: https://rdaniel99.github.io/ViRe-WaDe/
 * Project progress: https://github.com/RDaniel99/ViRe-WaDe/wiki/First-deliverable-status-page and the trello board: https://trello.com/b/cuiN0NpG/wade
 
-## Repositories:
+## Repositories
 
 * Intermediate Scholarly HTML technical report -> https://github.com/StativaCamelia/vire 
-* Sparql Endpoint and Recommendation Service -> https://github.com/StativaCamelia/Recommandation
+* Sparql Endpoint, Recommendation Service and Discogs Integration -> https://github.com/StativaCamelia/Recommandation
 * User Service -> https://github.com/RDaniel99/User-Microservice-WaDe
-* Playlist Service -> 
+* Playlist Service -> TO DO
 * UI Application -> https://github.com/StativaCamelia/vire-front
+
+## Deployed Service
+
+* Recommendation Service -> http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html
+* Sparql Endpoint -> http://recommendationendpoints.uc.r.appspot.com/recommendationSparQL
+* User Service -> TO DO
+* Playlist Service -> TO DO
+* UI Aplication -> TO DO
 
