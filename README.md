@@ -17,6 +17,14 @@ The system will use several music-related knowledge models (e.g., [Music Ontolog
 (for more commits check this repo: https://github.com/StativaCamelia/vire We just copied the info in this repository after the intermediate evaluation)
 * Arhitecture of the web application:
 * OpenAPI specification regarding the REST API – or, alternatively, a schema for the GraphQL API and Open API available in the technical report, all of them can be found in the report
-* Technical report: https://rdaniel99.github.io/ViRe-WaDe/
+* Updated Technical report: https://rdaniel99.github.io/ViRe-WaDe/
 * Project progress: https://github.com/RDaniel99/ViRe-WaDe/wiki/First-deliverable-status-page and the trello board: https://trello.com/b/cuiN0NpG/wade
+
+## Repositories:
+
+* Intermediate Scholarly HTML technical report -> https://github.com/StativaCamelia/vire 
+* Sparql Endpoint and Recommendation Service -> https://github.com/StativaCamelia/Recommandation
+* User Service -> https://github.com/RDaniel99/User-Microservice-WaDe
+* Playlist Service -> 
+* UI Application -> https://github.com/StativaCamelia/vire-front
 
