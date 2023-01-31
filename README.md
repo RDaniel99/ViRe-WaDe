@@ -34,5 +34,5 @@ The system will use several music-related knowledge models (e.g., [Music Ontolog
 * Recommendation Service -> http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html
 * Sparql Endpoint -> http://recommendationendpoints.uc.r.appspot.com/recommendationSparQL
 * User and Playlist Service -> https://user-microservice-wade.herokuapp.com/
-* UI Aplication -> TO DO
+* UI Aplication -> https://vire-front.herokuapp.com/
 
