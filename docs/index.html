@@ -849,9 +849,104 @@
               <h4 style="font-weight: bold;">Recommendation based on playlists: Last.fm</h4>
               <blockquote>
                 <p>
-                  Also, we will suggest some vinyls to the user based on the playlists he owns on different platforms
-                  We chose to get this information from the music streaming service <b><a
-                      href="https://www.last.fm/api/playlists">Last.fm Playlists</a></b>.
+                  Also, we wanted to recommed users vinyls based on the playlist they had on external services such as <b><a
+                      href="https://www.last.fm/api/playlists">Last.fm Playlists</a></b>. Unfortunetely, their service for playlists is depricated so we had 
+                  to implement our own way of parsing and saving the playlist from a user.
+                  <br/>
+                  Instead, we used <b><a href="https://www.last.fm/api">Last.fm API</a></b> for taking information regarding a vinyl such as: <b>the artist</b>,
+                  <b>image for the album</b>, <b>the url of the album</b>, <b>the playcount</b> and its <b>track</b> each with its unique <b>url</b> to access in
+                  order to listen to the track.
+                  <br/>
+                  We used the <b><a href="https://www.last.fm/api/show/album.getInfo">Album.GetInfo Endpoint</a></b> in order to get the json format data.
+                  <br/>
+                  <p>Here's an example of the data used by us from the <b><a href="https://www.last.fm/api/show/album.getInfo">Album.GetInfo Endpoint</a></b>
+                </p>
+              </blockquote>
+              <pre>
+                <code style="font-family: monospace;">
+                  {
+                    "artist": "Avril Lavigne",
+                    "mbid": "002a0094-40b7-4403-99ab-f3b0daeffacd",
+                    "tags": {
+                        "tag": [
+                            {
+                                "url": "https://www.last.fm/tag/pop",
+                                "name": "pop"
+                            },
+                            {
+                                "url": "https://www.last.fm/tag/2002",
+                                "name": "2002"
+                            },
+                            {
+                                "url": "https://www.last.fm/tag/female+vocalists",
+                                "name": "female vocalists"
+                            }
+                        ]
+                    },
+                    "playcount": "32860085",
+                    "image": [
+                        {
+                            "size": "small",
+                            "#text": "https://lastfm.freetls.fastly.net/i/u/34s/5196120dec2446b840ca061ed819f300.jpg"
+                        },
+                        {
+                            "size": "medium",
+                            "#text": "https://lastfm.freetls.fastly.net/i/u/64s/5196120dec2446b840ca061ed819f300.jpg"
+                        },
+                        {
+                            "size": "",
+                            "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/5196120dec2446b840ca061ed819f300.jpg"
+                        }
+                    ],
+                    "tracks": {
+                        "track": [
+                            {
+                                "streamable": {
+                                    "fulltrack": "0",
+                                    "#text": "0"
+                                },
+                                "duration": 233,
+                                "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Losing+Grip",
+                                "name": "Losing Grip",
+                                "@attr": {
+                                    "rank": 1
+                                },
+                                "artist": {
+                                    "url": "https://www.last.fm/music/Avril+Lavigne",
+                                    "name": "Avril Lavigne",
+                                    "mbid": "0103c1cc-4a09-4a5d-a344-56ad99a77193"
+                                }
+                            },
+                            {
+                                "streamable": {
+                                    "fulltrack": "0",
+                                    "#text": "0"
+                                },
+                                "duration": 209,
+                                "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Naked",
+                                "name": "Naked",
+                                "@attr": {
+                                    "rank": 13
+                                },
+                                "artist": {
+                                    "url": "https://www.last.fm/music/Avril+Lavigne",
+                                    "name": "Avril Lavigne",
+                                    "mbid": "0103c1cc-4a09-4a5d-a344-56ad99a77193"
+                                }
+                            }
+                        ]
+                    },
+                    "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go",
+                    "name": "Let Go",
+                    "listeners": "1783003",
+                    "wiki": {
+                        "published": "02 Feb 2022, 15:09",
+                        "summary": "Let Go is the debut studio album by Canadian singer-songwriter Avril Lavigne, released on June 3, 2002 through Arista Records. For a year after signing a record deal with Arista, Lavigne struggled due to conflicts in musical direction. She relocated to Los Angeles, where she recorded her earlier materials for the album, the sound of which the label did not approve. She was paired with the production team the Matrix, who understood her vision for the album. Critics described Let Go as an alternative rock album with a post-grunge-oriented sound. The album was credited as the biggest pop debut of <a href=\"https://www.last.fm/music/Avril+Lavigne/Let+Go\">Read more on Last.fm</a>.",
+                     }
+                }
+                    </code>
+                  </pre>
+              <blockquote>
                 </p>
               </blockquote>
             </div>
