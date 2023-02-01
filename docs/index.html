@@ -1088,6 +1088,73 @@
                 }
                   </code>
                 </pre>
+                <p>
+                  Once we had the Turtle file with the data about vinyls over the internet we made use of the <b><a href="https://cloud.stardog.com/u/0/studio/#/databases">Stardog Studio</a></b>
+                  where we created our database and loaded the file to populate it.
+                </p>
+                <p>
+                  We also made use of the <b>Stardog Studio</b> to create and test different queries against our database in order to see how to create that dinamycally in the
+                  <b>Recommendation System</b>.
+                  Some of the queries we tested are:
+                </p>
+                <p><i>Getting some vinyls filtered</i></p>
+                <pre>
+                  <code>
+                    PREFIX res: http://www.w3.org/2005/sparql-results#
+                    PREFIX rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+                    PREFIX xsd: http://www.w3.org/2001/XMLSchema#
+
+                    SELECT ?vinyl ?artist ?genre ?releaseDate
+                    WHERE {
+                      ?result a res:ResultSet .
+                      ?result res:solution ?solution . 
+                      ?solution res:binding [ res:variable "vinyl" ; res:value ?vinyl ] .
+                      ?solution res:binding [ res:variable "artist" ; res:value ?artist ] .
+                      ?solution res:binding [ res:variable "genre" ; res:value ?genre ] .
+                      ?solution res:binding [ res:variable "releaseDate" ; res:value ?releaseDate ] .
+                        
+                      FILTER (contains(?genre, "rock music") || 
+                      contains(?artist, "Frank Aleksandersen") && 
+                      ?releaseDate >= xsd:dateTime('1970-01-01'))
+                    }
+                  </code>
+                </pre>
+                <p><i>Getting most available genres for vinyls</i></p>
+                <pre>
+                  <code>
+                    PREFIX res: http://www.w3.org/2005/sparql-results#
+                    PREFIX rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+                    PREFIX xsd: http://www.w3.org/2001/XMLSchema#
+                    
+                    SELECT ?genre (COUNT(?vinyl) AS ?recordsCount)
+                    WHERE {
+                      ?result a res:ResultSet .
+                      ?result res:solution ?solution . 
+                      ?solution res:binding [ res:variable "vinyl" ; res:value ?vinyl ] .
+                      ?solution res:binding [ res:variable "genre" ; res:value ?genre ] .
+                    }
+                    GROUP BY ?genre
+                    ORDER BY desc(?recordsCount)                    
+                  </code>
+                </pre>
+                <p><i>Getting the years with most vinyls released</i></p>
+                <pre>
+                  <code>
+                    PREFIX res: http://www.w3.org/2005/sparql-results#
+                    PREFIX rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+                    PREFIX xsd: http://www.w3.org/2001/XMLSchema#
+                    
+                    SELECT distinct ?releaseDate (COUNT(?vinyl) AS ?recordsCount)
+                    WHERE {
+                      ?result a res:ResultSet .
+                      ?result res:solution ?solution . 
+                      ?solution res:binding [ res:variable "vinyl" ; res:value ?vinyl ] .
+                      ?solution res:binding [ res:variable "releaseDate" ; res:value ?releaseDate ] .
+                    }
+                    GROUP BY ?releaseDate
+                    ORDER BY desc(?recordsCount)    
+                  </code>
+                </pre>
             </div>
           </div>
         </section>
