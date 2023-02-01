@@ -1189,9 +1189,8 @@
             <div class="card-body">
               <h2 class="card-title" id="ontology_and_vocabularies">6. Ontology and Vocabularies</h2>
               <blockquote>
-                <p>We'll make use of the following ontology and vocabularies in order to model our business case. Some
-                  of
-                  them are needed for the Music Ontology that we use.</p>
+                <p>We'll make use of the following ontology and vocabularies in order to model our business case. We used <b>schema.org</b> and
+                  <b>Music Ontology</b>. For that we needed the following prefixes:
                 <ul>
                   <li><b>PREFIX schema</b>: https://schema.org/ </li>
                   <li><b>PREFIX rdf</b>: http://www.w3.org/1999/02/22-rdf-syntax-ns# </li>
@@ -1208,15 +1207,51 @@
               <h3 class="card-title">Vinyl Resource graph</h3>
               <blockquote>
                 <ul>
-                  <li><b>rdfs: subClassOf</b> defines a subclass of the class MusicRecording from schema.org</li>
-                  <li><b>schema: byArtist</b> represent the artist that performed this album or recording</li>
-                  <li><b>mo:Genre</b> an expressive style of music represented by any text or a reference to a DBPedia
+                  <li><b>@type</b> defines the type of the entity</li>
+                  <li><b>@id</b> defines the uri for the resource</li>
+                  <li><b>mo:genre</b> an expressive style of music represented by any text or a reference to a DBPedia
                     genre (such as http://dbpedia.org/resource/Baroque_music), allowing semantic web clients to access
                     easily really detailed structured information about the genre you are refering to.</li>
-                  <li><b>schema: member</b> Represents a member of the MusicGroup.</li>
-                  <li><b>schema: givenName</b> Represetns the first name of a Person, more accurate of the artist</li>
+                  <li><b>mo:image</b> Indicates a pictorial image (JPEG, GIF, PNG, Etc.) of a musical work, the expression of a musical work</li>
+                  <li><b>dc:title</b> defines the title of the Vinyl</li>
+                  <li><b>dc:date</b> defines release date of the Vinyl</li>
+                  <li><b>foaf:maker</b> defines the relationship between an artist and the vinyl</li>
                 </ul>
-                <img class="img-fluid" src="./vinyl-graph.png" alt="Vinyl Graph">
+                <img class="img-fluid" src="./rdf-models/vinyl.png" alt="Vinyl Graph">
+              </blockquote>
+              <h3 class="card-title">Artist Resource graph</h3>
+              <blockquote>
+                <ul>
+                  <li><b>@type</b> defines the type of the entity</li>
+                  <li><b>mo:image</b> Indicates a pictorial image (JPEG, GIF, PNG, Etc.) of a musical work, the expression of a musical work</li>
+                  <li><b>foaf:name</b> Indicates the name of the artist</li>
+                </ul>
+                <img class="img-fluid" src="./rdf-models/artist.png" alt="Artist Graph">
+              </blockquote>
+              <h3 class="card-title">Playlist Resource graph</h3>
+              <blockquote>
+                <ul>
+                  <li><b>@type</b> defines the type of the entity</li>
+                  <li><b>image</b> Indicates a image for an entity</li>
+                  <li><b>name</b> Indicates the name of an entity</li>
+                  <li><b>author</b> Indicates the author of an entity</li>
+                  <li><b>genre</b> Indicates the genre of a music piece</li>
+                  <li><b>numTrack</b> Indicates the number of tracks from the playlist</li>
+                  <li><b>track</b> Defines the relationship between a playlist and its tracks</li>
+                  <li><b>itemListElement</b> Defines the actual list of tracks from the playlist</li>
+                  <li><b>byArtist</b> represent the artist that performed this album or recording</li>
+                </ul>
+                <img class="img-fluid" src="./rdf-models/playlist.png" alt="Playlist Graph">
+              </blockquote>
+              <h3 class="card-title">Track Resource graph</h3>
+              <blockquote>
+                <ul>
+                  <li><b>@type</b> defines the type of the entity</li>
+                  <li><b>name</b> Indicates the name of an entity</li>
+                  <li><b>url</b> Indicates the uri of the entity</li>
+                  <li><b>byArtist</b> represent the artist that performed this album or recording</li>
+                </ul>
+                <img class="img-fluid" src="./rdf-models/track.png" alt="Track Graph">
               </blockquote>
             </div>
           </div>
