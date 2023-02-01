@@ -1,0 +1,271 @@
+﻿{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5eb7f5cc432c9c109248ebec1ac",
+  "foaf:name": "various artists"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5eb9a93e273380982dff84c0d7c",
+  "foaf:name": "Elvis Presley"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/b040846ceba13c3e9c125d68389491094e7f2982",
+  "foaf:name": "Queen"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5ebe641934ff83d7f0c92e41090",
+  "foaf:name": "Mario Trevi"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5ebe9348cc01ff5d55971b22433",
+  "foaf:name": "The Beatles"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5ebb94631f08038eac322c090f0",
+  "foaf:name": "Jethro Tull"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5eb4e85269a1f35917eddeadefd",
+  "foaf:name": "Kiss"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5ebaff13c9484fdad590ccfb73c",
+  "foaf:name": "Depeche Mode"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5eb5885f6c2d3ecf8e08bdfa472",
+  "foaf:name": "Van Morrison"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:MusicArtist",
+  "mo:image": "https://i.scdn.co/image/ab6761610000e5eb207c6849d1a1f4480e6aa222",
+  "foaf:name": "John Lennon"
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Stille før stormen",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Frank Aleksandersen"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b273f66f74c58b34188a7dde0465",
+  "mo:genre": "rock music",
+  "dc:date": {
+    "@value": "1986-01-01T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Bittersüß",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Marius Müller-Westernhagen"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b2736c195c35e8d8c2b54f7d494d",
+  "mo:genre": "rock music",
+  "dc:date": {
+    "@value": "1976-01-01T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "…It's Smoke Time",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "The Smoke"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b27395e7249c897f9d5f3ba49184",
+  "mo:genre": "garage rock",
+  "dc:date": {
+    "@value": "1967-01-01T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Begins with a Nightmare",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Savage Steel"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b27365bac17413481ba9bdfd5b5f",
+  "mo:genre": "heavy metal",
+  "dc:date": {
+    "@value": "1986-01-01T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Another Place",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Hiroshima"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b2730859591916b00badf4b063ce",
+  "mo:genre": "jazz-funk",
+  "dc:date": {
+    "@value": "1985-06-10T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Begins with a Nightmare",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Savage Steel"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b27365bac17413481ba9bdfd5b5f",
+  "mo:genre": "heavy metal",
+  "dc:date": {
+    "@value": "1987-01-01T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Süsü csapdába esik / Süsü és a Sárkánylány",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "István Csukás"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b273508b3bd9b2bb679e5039391c",
+  "mo:genre": "children's music",
+  "dc:date": {
+    "@value": "1988-04-23T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Jaguar",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Victoria Monét"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b27350aa87e1dea05ba3155bbbb2",
+  "mo:genre": "contemporary R&B",
+  "dc:date": {
+    "@value": "2020-08-07T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Amazonas",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "El Pasador"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b2731a3e9f74688b6c8f7fe97751",
+  "mo:genre": "disco",
+  "dc:date": {
+    "@value": "1976-01-01T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Ghost Culture",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Ghost Culture"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b273f211895b1fc00abde052076b",
+  "mo:genre": "alternative rock",
+  "dc:date": {
+    "@value": "2015-01-05T00:00:00Z",
+    "@type": "xsd:date"
+  }
+}

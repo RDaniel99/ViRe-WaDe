@@ -1,0 +1,132 @@
+﻿{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@id": "https://www.last.fm/music/Avril+Lavigne/Let+Go",
+  "@type": "mo:Vinyl",
+  "dc:title": "Let Go",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Avril Lavigne"
+  },
+  "mo:image": "https://lastfm.freetls.fastly.net/i/u/300x300/5196120dec2446b840ca061ed819f300.jpg"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Losing Grip",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Losing+Grip"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Complicated",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Complicated"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Sk8er Boi",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Sk8er+Boi"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "I'm with You",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/I%27m+with+You"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Mobile",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Mobile"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Unwanted",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Unwanted"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Tomorrow",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Tomorrow"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Anything but Ordinary",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Anything+but+Ordinary"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Things I'll Never Say",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Things+I%27ll+Never+Say"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "My World",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/My+World"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Nobody's Fool",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Nobody%27s+Fool"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Too Much to Ask",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Too+Much+to+Ask"
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicRecording",
+  "name": "Naked",
+  "byArtist": {
+    "@type": "Person",
+    "name": "Avril Lavigne"
+  },
+  "url": "https://www.last.fm/music/Avril+Lavigne/Let+Go/Naked"
+}
