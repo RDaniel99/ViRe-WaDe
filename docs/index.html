@@ -927,6 +927,126 @@
               <blockquote>
                 </p>
               </blockquote>
+              <h4 style="font-weight: bold;">Integration with StarDog</h4>
+              <blockquote>
+                <p>
+                  We used the Stardog platform in order to create and load our database with data. We create a <b><a href="https://github.com/StativaCamelia/Recommandation/blob/master/data_resources/vinyl_data.ttl">Turtle File .ttl</a></b>
+                  with data we obtained through <b>SparQL Queries</b> on the internet.
+                  <br/>
+                  We wanted to create a <b>vinyl database</b> and to have enough data so that we could interogate it for the <b>recommendation system</b>.
+                  <br/>
+                  The <b>biggest problem</b> we faced in doing so, was actually finding data about vinyls on the internet. Most of the data we found was about music like:
+                  <i>artists</i>, <i>albums</i> with their <i>tracks</i> and all kins of information in this area of music.
+                  <br/>
+                  We used all kind of <b>online query service</b> to query data over the internet and search for the desired data such as:
+                  <ul>
+                    <li><b><a href="https://query.wikidata.org/">WikiData Query Service</a></b> from <b><a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a></b></li>
+                    <li><b><a href="https://dbpedia.org/sparql">SparQL Query Editor</a></b> from <b><a href="https://www.dbpedia.org/">DBPedia</a></b></li>
+                  </ul>
+                  Luckily, we came across <b><a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">WikiData</a></b> which actually had data 
+                  about vinyls. So we created a query, and ran it in <b>WikiData Query Service</b>:
+              </blockquote>
+            </blockquote>
+            <pre>
+              <code style="font-family: monospace;">
+                SELECT distinct ?vinylLabel ?artistLabel ?genreLabel ?date
+                WHERE {
+                {
+                    SELECT ?vinyl ?property {
+                    hint:Query hint:optimizer "None" .
+                    ?property wikibase:claim ?p ;
+                    wikibase:statementProperty ?ps .
+                    ?st ?ps wd:Q178588 .
+                    ?vinyl ?p ?st .
+                    }
+                }
+                ?vinyl wdt:P175 ?artist .
+                ?vinyl wdt:P136 ?genre .
+                ?vinyl wdt:P577 ?date .
+                FILTER(?property = wd:P437)
+                BIND(wd:Q178588 AS ?target)
+                SERVICE wikibase:label {
+                    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" .
+                }
+                }
+                  </code>
+                </pre>
+            <blockquote>
+            <p>
+              Here we select the 
+              <ul>
+                <li><b>artist name</b> as <b>artistLabel</b></li>
+                <li><b>vinyl title</b> as <b>vinylLabel</b></li>
+                <li><b>genre of the vinyl</b> as <b>genreLabel</b></li>
+                <li><b>released date</b> as <b>date</b></li>
+              </ul>
+            </p>
+            <p>
+              We look through all entities which have the property of <i>distribution format</i>(wd:<b>P437</b>) equal to the <i>vinyl record</i>(wd:<b>Q178588</b>).
+            </p>
+            <p>The other problem now, was that we wanted to download all this information and load it in the <b>Stardog database</b>, but the 
+              <i>WikiData Query Service</i> didn't export the data in the formats we needed such as 
+              <ul>
+                <li><i>Turtle</i></li>
+                <li><i>RDF/XML</i></li>
+                <li><i>TRiG</i></li>
+                <li><i>TRiX</i></li>
+                <li><i>NQuads</i></li>
+              </ul>
+            <p>
+              On the <b>SparQL Query Editor</b> from <b>DBPedia</b> we could export on those formats but we didn't have the necessary data.
+              Therefore, we found another online service which let us query the <i>WikiData</i> and export it as a <i>Turtle File</i> and 
+              that is: <b><a href="https://linkeddata.uriburner.com/sparql">OpenLink Virtuoso SPARQL Query Editor</a></b>
+            </p>
+            <p>
+              The query that we sent there was slightly modified so that the editor could find all the namespaces and the wikidata service and it lookes like this:
+            </p>
+            <pre>
+              <code style="font-family: monospace;">
+                PREFIX wd: http://www.wikidata.org/entity
+                PREFIX wds: http://www.wikidata.org/entity/statement
+                PREFIX wdv: http://www.wikidata.org/value
+                PREFIX wdt: http://www.wikidata.org/prop/direct
+                PREFIX wikibase: http://wikiba.se/ontology#
+                PREFIX p: http://www.wikidata.org/prop
+                PREFIX ps: http://www.wikidata.org/prop/statement
+                PREFIX pq: http://www.wikidata.org/prop/qualifier
+                PREFIX rdfs: http://www.w3.org/2000/01/rdf-schema#
+                PREFIX bd: http://www.bigdata.com/rdf#
+                PREFIX hint: http://www.bigdata.com/queryHints#
+                
+                SELECT (?vinylLabel as ?vinyl)
+                       (?artistLabel  as ?artist)
+                       (?genreLabel as ?genre)
+                       (?date as ?releaseDate)
+                WHERE
+                {
+                    SERVICE https://query.wikidata.org/sparql
+                    {
+                        SELECT distinct ?vinylLabel ?artistLabel ?genreLabel ?date
+                        WHERE {
+                        {
+                            SELECT ?vinyl ?property {
+                            hint:Query hint:optimizer "None" .
+                            ?property wikibase:claim ?p ;
+                            wikibase:statementProperty ?ps .
+                            ?st ?ps wd:Q178588 .
+                            ?vinyl ?p ?st .
+                            }
+                        }
+                      ?vinyl wdt:P175 ?artist .
+                      ?vinyl wdt:P136 ?genre .
+                      ?vinyl wdt:P577 ?date .
+                      FILTER(?property = wd:P437)
+                      BIND(wd:Q178588 AS ?target)
+                      SERVICE wikibase:label {
+                          bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" .
+                      }
+                      }
+                    }
+                }
+                  </code>
+                </pre>
             </div>
           </div>
         </section>
@@ -993,7 +1113,7 @@
                   <li>Include links to other URIs to make other data discoverable</li>
                 </ul>
 
-                <p>Vire will make use of a few of these principles in the following manners:</p>
+                <p>ViRe will make use of a few of these principles in the following manners:</p>
                 <ul>
                   <li>URIs will be properly used to name the pages which facilitates the search for named data</li>
                   <li>The data used for our resources has been modeled using the <b>Music Ontology</b> and
