@@ -175,8 +175,8 @@
               </div>
               <h3 class="card-title">Main Backend Modules</h3>
               <h3 style="color:blue;" class="card-title">Vinyls Module (GraphQL endpoint)</h3>
-              <p>This service is deployed on <b>GCP</b>: <a
-                  href="http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html">Deployed Service</a></p>
+              <p>This service is deployed on <b>Google Cloud Platform</b>: <a
+                  href="http://recommendationendpoints.uc.r.appspot.com/recommendationSparQL">Deployed Service</a></p>
               <p>
                 This module was developed using: <b>Spring Boot</b>
               </p>
@@ -249,6 +249,11 @@
               </ul>
               <h3 style="color:blue;" class="card-title">Recommandation Module</h3>
               <h4 style="color:green; font-size: larger;" class="card-title">Overview</h4>
+              <p>This service is deployed on <b>Google Cloud Platform</b>: <a
+                  href="http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html">Deployed Service</a></p>
+              <p>
+                This module was developed using: <b>Spring Boot</b>
+              </p>
               <blockquote>
                 <p>This service will be the one responsable for providing a number of vinyl recommandation, obtained
                   based
@@ -262,7 +267,7 @@
                 <p>
                   This endpoint will act as an intermediary between the application frontend and the Vinyls Service
                   that
-                  will return the actual recommandation. So this endpoint will transform the received input in something
+                  will return the actual recommandation. So this endpoint will transform the received input in a query
                   that can be easily interpreted by the Vinyls GraphQL endpoint
                 </p>
               </blockquote>
@@ -292,41 +297,73 @@
                       able to express his music taste using only a few main words. If he will not respect the phrase
                       structure or the set of accepted words we will not process his request.
                     </p>
-                    <p><b>How our controlled natural language will look:</b></p>
-                    <p>In order to obtain the express what he likes and what he doesn't the user will need:</p>
-                    <ul>
-                      <li>A predicate to express his feelings towards something
-                        <p>Examples:</p>
-                        <ul>
-                          <li>like</li>
-                          <li>love</li>
-                          <li>dislike</li>
-                          <li>hate</li>
-                          <li>enjoy</li>
-                        </ul>
-                      </li>
-                      <li>The frequecy of an action
-                        <p>Examples:</p>
-                        <ul>
-                          <li>always</li>
-                          <li>never</li>
-                          <li>sometimes</li>
-                        </ul>
-                      </li>
-                      <li>Music Genres</li>
-                      <li>Music Artists</li>
-                    </ul>
                   </blockquote>
+                  <p><b>How our controlled natural language will look:</b></p>
+                  <p>In order to obtain the express what he likes and what he doesn't the user will need:</p>
+                  <ul>
+                    <li>A predicate to express his feelings towards something
+                      <p>Examples:</p>
+                      <ul>
+                        <li>like</li>
+                        <li>love</li>
+                        <li>dislike</li>
+                        <li>hate</li>
+                        <li>enjoy</li>
+                      </ul>
+                    </li>
+                    <li>The frequecy of an action
+                      <p>Examples:</p>
+                      <ul>
+                        <li>always</li>
+                        <li>never</li>
+                        <li>sometimes</li>
+                      </ul>
+                    </li>
+                    <li>Music Genres</li>
+                    <li>Music Artists</li>
+                  </ul>
                 </li>
-
               </ul>
+              <blockquote>
+                <p>
+                  So far we implemented the possibily of getting recommendations based on the following criterias:
+                  <b>Liked Artists / Disliked Artists</b>, <b>Liked Genres / Disliked Genres</b> and <b>Release
+                    period</b>
+                </p>
+                <p>An example of body accepted by this endpoint:</p>
+                <pre>
+                  <code>
+                    {
+                      "likedArtists": [
+                        "Frank Aleksandersen",
+                        "Elvis"
+                      ],
+                    
+                      "likedGenres": [
+                        "disco"
+                      ],
+                      "startYear": 0,
+                      "endYear": 0,
+                      "limit": 0,
+                      "pageSize": 5,
+                      "pageIndex": 1
+                    }
+                  </code>
+                </pre>
+                <p>
+                  Based on this data we use a query builder (created by us) in order to construct the graphQL query that
+                  will be send to the sparQL API.
+                  Once we receive the result from the sparQL API we convert the data in a json format so we can easily
+                  use it when we call this endpoint from the frontend application.
+                </p>
+              </blockquote>
               <h4 style="color:green; font-size: larger;" class="card-title">Recommandation based on past purchases</h4>
               <blockquote>
                 <p>Using the endpoint for this recommandation type the user will receive recommandation based on past
                   purchases done on Discogs</p>
                 <p>In order to be able to receive the output for this endpoint the user will need to associate the
                   account
-                  on our application with his account on<a src="https://www.discogs.com/">Discogs</a></p>
+                  on our application with his account on <a src="https://www.discogs.com/">Discogs</a></p>
               </blockquote>
               <ul>
                 <li>
@@ -381,7 +418,13 @@
                       collection items by folder</a>
                   </li>
                 </ul>
-                More details about how this will be used on the External Data Sources section.
+                <p>Once we extract the data from the Discogs API (the past purchases of an user) we extract certain
+                  values from that data(the artist, the genre, the release year) and based on that information, we
+                  create a
+                  query using the query builder and we sent that query to the sparQL endpoint. </p>
+                <p>
+                  More details about how we will extract data from Discog can be found on the External Data Sources
+                  section.</p>
                 </p>
               </blockquote>
               <h4 style="color:green; font-size: larger;" class="card-title">Recommandation based on playlist</h4>
