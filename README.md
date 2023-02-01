@@ -30,7 +30,7 @@ The system will use several music-related knowledge models (e.g., [Music Ontolog
 * UI Application -> https://github.com/StativaCamelia/vire-front
 
 ## Deployed Service
-
+* Scholarly HTML technical report -> https://rdaniel99.github.io/ViRe-WaDe/
 * Recommendation Service -> http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html
 * Sparql Endpoint -> http://recommendationendpoints.uc.r.appspot.com/recommendationSparQL
 * User and Playlist Service -> https://user-microservice-wade.herokuapp.com/
