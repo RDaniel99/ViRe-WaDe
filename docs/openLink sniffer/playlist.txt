@@ -1,0 +1,217 @@
+﻿{
+  "@context": "https://schema.org/",
+  "@type": "MusicPlaylist",
+  "numTracks": 3,
+  "image": "https://lastfm.freetls.fastly.net/i/u/300x300/381d1bd5250f433e9bab0542a50909c6.jpg",
+  "name": "Eminem Show",
+  "author": "Eminem",
+  "track": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "MusicRecording",
+        "name": "Without Me",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Eminem"
+        },
+        "genre": "Hip Hop",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/381d1bd5250f433e9bab0542a50909c6.jpg"
+      },
+      {
+        "@type": "MusicRecording",
+        "name": "Cleanin' Out My Closet",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Eminem"
+        },
+        "genre": "Hip Hop",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/381d1bd5250f433e9bab0542a50909c6.jpg"
+      },
+      {
+        "@type": "MusicRecording",
+        "name": "Superman",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Eminem"
+        },
+        "genre": "Hip Hop",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/381d1bd5250f433e9bab0542a50909c6.jpg"
+      }
+    ]
+  }
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicPlaylist",
+  "numTracks": 3,
+  "image": "https://lastfm.freetls.fastly.net/i/u/300x300/5196120dec2446b840ca061ed819f300.jpg",
+  "name": "Let Go",
+  "author": "Avril Lavigne",
+  "track": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "MusicRecording",
+        "name": "Losing Grip",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Avril Lavigne"
+        },
+        "genre": "Rock",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/5196120dec2446b840ca061ed819f300.jpg"
+      },
+      {
+        "@type": "MusicRecording",
+        "name": "Complicated",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Avril Lavigne"
+        },
+        "genre": "Rock",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/5196120dec2446b840ca061ed819f300.jpg"
+      },
+      {
+        "@type": "MusicRecording",
+        "name": "Sk8er Boi",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Avril Lavigne"
+        },
+        "genre": "Rock",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/5196120dec2446b840ca061ed819f300.jpg"
+      }
+    ]
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "12 X 5",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "The Rolling Stones"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b2739d6ee4590d050ec9563daa92",
+  "mo:genre": "pop rock",
+  "dc:date": {
+    "@value": "1964-10-17T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "The Joshua Tree",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "U2"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b273b7bea3d01f04e6d0408d2afe",
+  "mo:genre": "pop rock",
+  "dc:date": {
+    "@value": "1987-03-09T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Ringo",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Ringo Starr"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b273493bd0f4bc0e1f3732a75c8d",
+  "mo:genre": "pop rock",
+  "dc:date": {
+    "@value": "1973-01-01T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "Waterloo",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "ABBA"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b27311c24dc7f5ef909381c0a7d6",
+  "mo:genre": "pop rock",
+  "dc:date": {
+    "@value": "1974-03-04T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": {
+    "mo": "http://purl.org/ontology/mo/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  },
+  "@type": "mo:Vinyl",
+  "dc:title": "The King and Queen of America",
+  "foaf:maker": {
+    "@type": "mo:MusicArtist",
+    "foaf:name": "Eurythmics"
+  },
+  "mo:image": "https://i.scdn.co/image/ab67616d0000b273b3994c94dfb241923664bb4d",
+  "mo:genre": "pop rock",
+  "dc:date": {
+    "@value": "1989-01-01T00:00:00Z",
+    "@type": "xsd:date"
+  }
+},{
+  "@context": "https://schema.org/",
+  "@type": "MusicPlaylist",
+  "numTracks": 3,
+  "image": "https://lastfm.freetls.fastly.net/i/u/300x300/75075bd01c96465e54fc250b22f83296.jpg",
+  "name": "21",
+  "author": "Adele",
+  "track": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "MusicRecording",
+        "name": "Rolling in the deep",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Adele"
+        },
+        "genre": "Pop",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/75075bd01c96465e54fc250b22f83296.jpg"
+      },
+      {
+        "@type": "MusicRecording",
+        "name": "Rumour Has It",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Adele"
+        },
+        "genre": "Pop",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/75075bd01c96465e54fc250b22f83296.jpg"
+      },
+      {
+        "@type": "MusicRecording",
+        "name": "Turning Tables",
+        "byArtist": {
+          "@type": "Person",
+          "name": "Adele"
+        },
+        "genre": "Pop",
+        "image": "https://lastfm.freetls.fastly.net/i/u/300x300/75075bd01c96465e54fc250b22f83296.jpg"
+      }
+    ]
+  }
+}
