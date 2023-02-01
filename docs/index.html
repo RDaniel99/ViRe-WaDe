@@ -327,19 +327,24 @@
                   Collections and Wantlists, create Marketplace Listings, and more.
                 <p style="font-weight: bold;">More details about this can be found here: <a
                     href="https://www.discogs.com/developers#page:home">Discogs API</a></p>
-                  In our application besides the endpoints used for the OAuth1.0 flow we will use the following endpoints:
-                  <ul>
-                    <li>
-                    <a href="https://www.discogs.com/developers#page:user-identity,header:user-identity-identity">GET User Identity API</a>
-                    </li>
-                    <li>
-                      <a href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-get">GET collections folder by user</a>
-                    </li>
-                    <li>
-                      <a href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-items-by-folder">GET collection items by folder</a>
-                    </li>
-                  </ul>
-                  More details about how this will be used on the External Data Sources section.
+                In our application besides the endpoints used for the OAuth1.0 flow we will use the following endpoints:
+                <ul>
+                  <li>
+                    <a href="https://www.discogs.com/developers#page:user-identity,header:user-identity-identity">GET
+                      User Identity API</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-get">GET
+                      collections folder by user</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-items-by-folder">GET
+                      collection items by folder</a>
+                  </li>
+                </ul>
+                More details about how this will be used on the External Data Sources section.
                 </p>
               </blockquote>
               <h4 style="color:green; font-size: larger;" class="card-title">Recommandation based on playlist</h4>
@@ -564,12 +569,90 @@
                 <p>
                   We'll be using some external APIs in order to make vinyl recommendation to the user.
                 </p>
+                <h4 style="font-weight: bold;">Recommendation based on past purchases: Discogs</h4>
                 <p>
                   We should be able to reccomend the user some vinyls based on the past song purchases on various music
                   stores.
                   In order to achieve this we plan on using the <b><a href="https://www.discogs.com/developers/">Discogs
                       API</a></b>.
+                <h5 style="font-weight: bold;">What kind of data do we get from Discogs?</h5>
+                <p>That's an example of the data used by us from the Discogs API (this data is returned by <a
+                    href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-items-by-folder">this
+                    API</a>)
                 </p>
+
+                <pre>
+                <code>
+    "releases": [
+    {
+      "id": 2464521,
+      "instance_id": 1,
+      "folder_id": 1,
+      "rating": 0,
+      "basic_information": {
+        "id": 2464521,
+        "title": "Information Chase",
+        "year": 2006,
+        "resource_url": "https://api.discogs.com/releases/2464521",
+        "formats": [
+          {
+            "qty": "1",
+            "descriptions": [ "Mini", "EP" ],
+            "name": "CDr"
+          }
+        ],
+        "artists": [
+          {
+            "id": 103906,
+            "name": "Bit Shifter",
+            "join": "",
+            "resource_url": "https://api.discogs.com/artists/103906",
+            "anv": "",
+            "tracks": "",
+            "role": ""
+          }
+        ],
+        "genres": [
+            "Electronic", 
+            "Pop"
+        ],
+        "styles": [
+            "Chiptune"
+        ]
+      }
+    }
+  ]
+                    </code>
+                  </pre>
+                <p>From this response we will extract the following information: the album title, the list of the
+                  artists, the list of genres and also the release date.
+                  Using this information we will further create a sparQL query that will extract the recommendations.
+                </p>
+                <h5 style="font-weight: bold;">How do we access the needed data?</h5>
+                <p>
+                  In order to be able to access the user data we will need to follow the OAuth1.0 flow, once we obtained
+                  the user token we can make authenticated calls to the following APIs:
+                <ol>
+                  <li><a href="https://www.discogs.com/developers#page:user-identity,header:user-identity-identity">GET
+                      USER Identity API: /oauth/identity</a> -> using this API we will extract the Discogs username of
+                    the current user.
+                    We will need this username in order to access the user collections</li>
+                  <li><a
+                      href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection">GET
+                      collection folders API: /users/{username}/collection/folders</a> -> using the previously obtained
+                    username we can now access the collection folders for an user. The collection folders are a way for
+                    the Discogs users of organizing his vinyl collection.</li>
+                  <li><a
+                      href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-folder">GET
+                      collection items API: /users/{username}/collection/folders/{folder_id}</a> -> once we have the
+                    user collection folders we can obtain ,using this API, the items inside a collection (presented
+                    above). This items will
+                    represent his past purchases and based on this we will extract the recommendations</li>
+                </ol>
+                </p>
+                </p>
+                <h4 style="font-weight: bold;">Recommendation based on playlists: Last.fm</h4>
+
                 <p>
                   Also, we will suggest some vinyls to the user based on the playlists he owns on different platforms
                   We chose to get this information from the music streaming service <b><a
