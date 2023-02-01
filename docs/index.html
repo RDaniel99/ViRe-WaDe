@@ -175,9 +175,15 @@
               </div>
               <h3 class="card-title">Main Backend Modules</h3>
               <h3 style="color:blue;" class="card-title">Vinyls Module (GraphQL endpoint)</h3>
+              <p>This service is deployed on <b>GCP</b>: <a
+                  href="http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html">Deployed Service</a></p>
+              <p>
+                This module was developed using: <b>Spring Boot</b>
+              </p>
               <blockquote>
                 <p>
-                  This service will exponse only one endpoint. This endpoint will receive as an input a query and based
+                  This service will exponse only one endpoint.
+                  This endpoint will receive as an input a <b>query</b> and based
                   on that will return a list of possible recommandation obtained by querying DBPedia
                 </p>
                 <p>
@@ -186,11 +192,42 @@
                 <ul>
               </blockquote>
               <h4 style="color:green; font-size: larger;">
-                The arhitecture of the service is the following:
+                (Initial arhitecture) The arhitecture of the service is the following:
               </h4>
               <div class="item">
                 <img src="graphQL.PNG" alt="graphQL" style="width:100%;">
               </div>
+
+              <h4 style="color:green; font-size: larger;">
+                (Current arhitecture) The current arhitecture of the service is the following:
+              </h4>
+              <div class="item">
+                <img src="graphQLNew.PNG" alt="graphQL" style="width:100%;">
+              </div>
+              <blockquote>
+                <p>
+                  When we started the actual implementation for this api we decided to use Stardog to represent the
+                  Vinyl
+                  entity, because we can easily access the data using the Stardog API.
+                </p>
+                <p>
+                  By using the Stardog API the arhitecture is simplified because once we received the query as in input
+                  we
+                  just need to pass the query to the Stardogs API. The Stardogs API will validate the query and after
+                  that
+                  the query is going to be executed on our data source.
+                </p>
+                <p>
+                  We are calling the following Stardog endpoint: POST <a
+                    href="https://sd-28c1a0f2.stardog.cloud:5820/vinyl/query">
+                    https://sd-28c1a0f2.stardog.cloud:5820/vinyl/query</a> and in the body we are sending the query we
+                  want to execute.
+                  As a response we will receive multiple vinyl entities filtered based on the query we just sent.
+                </p>
+
+              </blockquote>
+
+
               <h4 style="color:green; font-size: larger;">
                 Schema:
               </h4>
@@ -307,6 +344,15 @@
                   with our application we will save his connection data in our database and everytime we requests data
                   from this endpoint we will get the authentification token from Discogs and use it in order to obtain
                   his past purchases</p>
+                <h6 style="font-size: medium; font-weight: bolder;">OAuth Flow</h6>
+                <p>
+                  In order to be able to access the user data without having them sharing their password we used the
+                  OAuth1.0
+                  protocol provided by Discogs.
+                <p style="font-weight: bold;">More details about this can be found here: <a
+                    href="https://www.discogs.com/developers#page:authentication">Discogs OAuth1.0 Flow</a></p>
+                </p>
+                </p>
                 <p>
                   The response from the Discogs API will be converted in a format that will be accepted by the Vinyls
                   GraphQL endpoint.
@@ -316,6 +362,26 @@
                   information
                   about Database objects such as Artists, Releases, and Labels. Your application can also manage User
                   Collections and Wantlists, create Marketplace Listings, and more.
+                <p style="font-weight: bold;">More details about this can be found here: <a
+                    href="https://www.discogs.com/developers#page:home">Discogs API</a></p>
+                In our application besides the endpoints used for the OAuth1.0 flow we will use the following endpoints:
+                <ul>
+                  <li>
+                    <a href="https://www.discogs.com/developers#page:user-identity,header:user-identity-identity">GET
+                      User Identity API</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-get">GET
+                      collections folder by user</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-items-by-folder">GET
+                      collection items by folder</a>
+                  </li>
+                </ul>
+                More details about how this will be used on the External Data Sources section.
                 </p>
               </blockquote>
               <h4 style="color:green; font-size: larger;" class="card-title">Recommandation based on playlist</h4>
@@ -385,7 +451,7 @@
               </ul>
               <h4 style="color:green; font-size: larger;">Open API:</h4>
               <p>
-                 <a href="./recommandation-module/index.html">Here</a>
+                <a href="./recommandation-module/index.html">Here</a>
               </p>
 
 
@@ -540,12 +606,92 @@
                 <p>
                   We'll be using some external APIs in order to make vinyl recommendation to the user.
                 </p>
+                <h4 style="font-weight: bold;">Recommendation based on past purchases: Discogs</h4>
                 <p>
                   We should be able to reccomend the user some vinyls based on the past song purchases on various music
                   stores.
                   In order to achieve this we plan on using the <b><a href="https://www.discogs.com/developers/">Discogs
                       API</a></b>.
+                <h5 style="font-weight: bold;">What kind of data do we get from Discogs?</h5>
+                <p>That's an example of the data used by us from the Discogs API (this data is returned by <a
+                    href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-items-by-folder">this
+                    API</a>)
                 </p>
+              </blockquote>
+              <pre>
+                <code>
+    "releases": [
+    {
+      "id": 2464521,
+      "instance_id": 1,
+      "folder_id": 1,
+      "rating": 0,
+      "basic_information": {
+        "id": 2464521,
+        "title": "Information Chase",
+        "year": 2006,
+        "resource_url": "https://api.discogs.com/releases/2464521",
+        "formats": [
+          {
+            "qty": "1",
+            "descriptions": [ "Mini", "EP" ],
+            "name": "CDr"
+          }
+        ],
+        "artists": [
+          {
+            "id": 103906,
+            "name": "Bit Shifter",
+            "join": "",
+            "resource_url": "https://api.discogs.com/artists/103906",
+            "anv": "",
+            "tracks": "",
+            "role": ""
+          }
+        ],
+        "genres": [
+            "Electronic", 
+            "Pop"
+        ],
+        "styles": [
+            "Chiptune"
+        ]
+      }
+    }
+  ]
+                    </code>
+                  </pre>
+              <blockquote>
+                <p>From this response we will extract the following information: the album title, the list of the
+                  artists, the list of genres and also the release date.
+                  Using this information we will further create a sparQL query that will extract the recommendations.
+                </p>
+                <h5 style="font-weight: bold;">How do we access the needed data?</h5>
+                <p>
+                  In order to be able to access the user data we will need to follow the OAuth1.0 flow, once we obtained
+                  the user token we can make authenticated calls to the following APIs:
+                <ol>
+                  <li><a href="https://www.discogs.com/developers#page:user-identity,header:user-identity-identity">GET
+                      USER Identity API: /oauth/identity</a> -> using this API we will extract the Discogs username of
+                    the current user.
+                    We will need this username in order to access the user collections</li>
+                  <li><a
+                      href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection">GET
+                      collection folders API: /users/{username}/collection/folders</a> -> using the previously obtained
+                    username we can now access the collection folders for an user. The collection folders are a way for
+                    the Discogs users of organizing his vinyl collection.</li>
+                  <li><a
+                      href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-folder">GET
+                      collection items API: /users/{username}/collection/folders/{folder_id}</a> -> once we have the
+                    user collection folders we can obtain ,using this API, the items inside a collection (presented
+                    above). This items will
+                    represent his past purchases and based on this we will extract the recommendations</li>
+                </ol>
+                </p>
+                </p>
+              </blockquote>
+              <h4 style="font-weight: bold;">Recommendation based on playlists: Last.fm</h4>
+              <blockquote>
                 <p>
                   Also, we will suggest some vinyls to the user based on the playlists he owns on different platforms
                   We chose to get this information from the music streaming service <b><a
