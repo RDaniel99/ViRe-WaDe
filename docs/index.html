@@ -531,10 +531,12 @@
               </p>
 
 
-              <h3 class="card-title" id="user_module">User Module</h3>
+              <h3 class="card-title" id="user_module">User & Playlist Module</h3>
 
               <p>
                 This module role is to maintain the functionality needed for users like login, register etc.
+                Also because of the dependency between a user and a playlist.(the user can create a playlist that only he can access it), this module has also role 
+                to maintain the functionality needed for playlists like create, edit etc.
               </p>
               <p>
                 The arhitecture of the service is the following:
@@ -542,23 +544,20 @@
               <div class="item">
                 <img src="arhUserService.PNG" alt="userService" style="width:100%;">
               </div>
-              <p>
-                Open API: <a href="./user-service-swagger/index.html">Here</a>
-              </p>
-
-              <h3 class="card-title" id="playlist_module">Playlist Module</h3>
-              <p>
-                This module role is to maintain the functionality needed for playlists like create, edit etc.
-              </p>
-              <p>
-                The arhitecture of the service is the following:
-              </p>
               <div class="item">
                 <img src="arhPlaylistService.PNG" alt="playlistService" style="width:100%;">
               </div>
               <p>
+                Open API: <a href="./user-service-swagger/index.html">Here</a>
+              </p>
+              <p>
                 Open API: <a href="./playlist-service-swagger/index.html">Here</a>
               </p>
+              <p>This service is deployed on <b>Heroku Platform</b>: <a
+                href="https://user-microservice-wade.herokuapp.com/">Deployed Service</a></p>
+            <p>
+              This module was developed using: <b>Python with Flask</b>
+            </p>
             </div>
         </section>
       </div>
@@ -766,6 +765,7 @@
 
               <h3 class="card-title">User Description</h3>
               <blockquote>
+                <p>A more detailed User guide can be found in the <b><a href="https://rdaniel99.github.io/ViRe-WaDe/userManual.html">User Manual Page</a></b></p>
                 <p>An end user is a person who uses a product or service. This individual isn't necessarily the one who
                   purchases a product but the one who ultimately uses it.
                   For our application we have two main end users: </p>
