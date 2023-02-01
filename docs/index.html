@@ -307,6 +307,15 @@
                   with our application we will save his connection data in our database and everytime we requests data
                   from this endpoint we will get the authentification token from Discogs and use it in order to obtain
                   his past purchases</p>
+                <h6 style="font-size: medium; font-weight: bolder;">OAuth Flow</h6>
+                <p>
+                  In order to be able to access the user data without having them sharing their password we used the
+                  OAuth1.0
+                  protocol provided by Discogs.
+                <p style="font-weight: bold;">More details about this can be found here: <a
+                    href="https://www.discogs.com/developers#page:authentication">Discogs OAuth1.0 Flow</a></p>
+                </p>
+                </p>
                 <p>
                   The response from the Discogs API will be converted in a format that will be accepted by the Vinyls
                   GraphQL endpoint.
@@ -316,6 +325,21 @@
                   information
                   about Database objects such as Artists, Releases, and Labels. Your application can also manage User
                   Collections and Wantlists, create Marketplace Listings, and more.
+                <p style="font-weight: bold;">More details about this can be found here: <a
+                    href="https://www.discogs.com/developers#page:home">Discogs API</a></p>
+                  In our application besides the endpoints used for the OAuth1.0 flow we will use the following endpoints:
+                  <ul>
+                    <li>
+                    <a href="https://www.discogs.com/developers#page:user-identity,header:user-identity-identity">GET User Identity API</a>
+                    </li>
+                    <li>
+                      <a href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-get">GET collections folder by user</a>
+                    </li>
+                    <li>
+                      <a href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-items-by-folder">GET collection items by folder</a>
+                    </li>
+                  </ul>
+                  More details about how this will be used on the External Data Sources section.
                 </p>
               </blockquote>
               <h4 style="color:green; font-size: larger;" class="card-title">Recommandation based on playlist</h4>
@@ -385,7 +409,7 @@
               </ul>
               <h4 style="color:green; font-size: larger;">Open API:</h4>
               <p>
-                 <a href="./recommandation-module/index.html">Here</a>
+                <a href="./recommandation-module/index.html">Here</a>
               </p>
 
 
