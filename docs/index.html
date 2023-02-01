@@ -418,6 +418,7 @@
                       collection items by folder</a>
                   </li>
                 </ul>
+
                 <p>Once we extract the data from the Discogs API (the past purchases of an user) we extract certain
                   values from that data(the artist, the genre, the release year) and based on that information, we
                   create a
@@ -425,6 +426,16 @@
                 <p>
                   More details about how we will extract data from Discog can be found on the External Data Sources
                   section.</p>
+                <p style="color:red">Problem:</p>
+                <p><i>When we started the development of this application we expected to have a Discogs endpoint that
+                    will
+                    return exactly the past purchases of an user done using the Discogs site, but there wasn't such an
+                    endpoint. Instead we decided to use the <a
+                      href="https://support.discogs.com/hc/en-us/articles/360007331534-How-Does-The-Collection-Feature-Work-">collection
+                      concept</a> present in Discogs. In Discogs, a collection is not automatically updated when we
+                    buy a new vinyl, but we need to manually add a new purchase, so if the user follows the
+                    definition of a collection and not just only adds random data, in a collection folder we will find
+                    the vinyls the user currently owns</i></p>
                 </p>
               </blockquote>
               <h4 style="color:green; font-size: larger;" class="card-title">Recommandation based on playlist</h4>
@@ -536,6 +547,18 @@
           <div class="card text-bg-light mb-3">
             <div class="card-body">
               <h2 class="card-title">3. Frontend Design</h2>
+              <blockquote>
+                <p>
+                  The fronted is deployed on Heroku: <a
+                    href="https://vire-front.herokuapp.com/">https://vire-front.herokuapp.com/</a>
+                </p>
+                <p>
+                  The fronted application was developed using: <b>React</b>
+                </p>
+                <p>A specific library used for this project is this one: <a
+                    href="https://www.npmjs.com/package/album-art">https://www.npmjs.com/package/album-art</a> used in
+                  order to receive the album cover based on the album name</p>
+              </blockquote>
               <h3 class="card-title">UI Mockup</h3>
 
               <div id="uiCarousel" class="carousel carousel-dark slide" data-ride="carousel">
@@ -671,13 +694,26 @@
                   </div>
 
                   <div class="item">
-                    <img src="final-front-ss/vinylRecomendationByPreferences.png" alt="vinylRecomendationByPreferences" style="width:100%;">
+                    <img src="final-front-ss/vinylRecomendationByPreferences.png" alt="vinylRecomendationByPreferences"
+                      style="width:100%;">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
                   </div>
 
                   <div class="item">
                     <img src="final-front-ss/vinylWithTracks.png" alt="vinylWithTracks" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="final-front-ss/discogsConnected.png" alt="discogsConnected" style="width:100%;">
+                    <div class="carousel-caption d-none d-md-block">
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <img src="final-front-ss/discogsData.png" alt="discogsData" style="width:100%;">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
                   </div>
@@ -754,45 +790,45 @@
               </blockquote>
               <pre>
                 <code>
-    "releases": [
-    {
-      "id": 2464521,
-      "instance_id": 1,
-      "folder_id": 1,
-      "rating": 0,
-      "basic_information": {
-        "id": 2464521,
-        "title": "Information Chase",
-        "year": 2006,
-        "resource_url": "https://api.discogs.com/releases/2464521",
-        "formats": [
-          {
-            "qty": "1",
-            "descriptions": [ "Mini", "EP" ],
-            "name": "CDr"
-          }
-        ],
-        "artists": [
-          {
-            "id": 103906,
-            "name": "Bit Shifter",
-            "join": "",
-            "resource_url": "https://api.discogs.com/artists/103906",
-            "anv": "",
-            "tracks": "",
-            "role": ""
-          }
-        ],
-        "genres": [
-            "Electronic", 
-            "Pop"
-        ],
-        "styles": [
-            "Chiptune"
-        ]
-      }
-    }
-  ]
+                    "releases": [
+                    {
+                      "id": 2464521,
+                      "instance_id": 1,
+                      "folder_id": 1,
+                      "rating": 0,
+                      "basic_information": {
+                        "id": 2464521,
+                        "title": "Information Chase",
+                        "year": 2006,
+                        "resource_url": "https://api.discogs.com/releases/2464521",
+                        "formats": [
+                          {
+                            "qty": "1",
+                            "descriptions": [ "Mini", "EP" ],
+                            "name": "CDr"
+                          }
+                        ],
+                        "artists": [
+                          {
+                            "id": 103906,
+                            "name": "Bit Shifter",
+                            "join": "",
+                            "resource_url": "https://api.discogs.com/artists/103906",
+                            "anv": "",
+                            "tracks": "",
+                            "role": ""
+                          }
+                        ],
+                        "genres": [
+                            "Electronic", 
+                            "Pop"
+                        ],
+                        "styles": [
+                            "Chiptune"
+                        ]
+                      }
+                    }
+                  ]
                     </code>
                   </pre>
               <blockquote>
@@ -827,17 +863,22 @@
               <h4 style="font-weight: bold;">Recommendation based on playlists: Last.fm</h4>
               <blockquote>
                 <p>
-                  Also, we wanted to recommed users vinyls based on the playlist they had on external services such as <b><a
-                      href="https://www.last.fm/api/playlists">Last.fm Playlists</a></b>. Unfortunetely, their service for playlists is depricated so we had 
+                  Also, we wanted to recommed users vinyls based on the playlist they had on external services such as
+                  <b><a href="https://www.last.fm/api/playlists">Last.fm Playlists</a></b>. Unfortunetely, their service
+                  for playlists is depricated so we had
                   to implement our own way of parsing and saving the playlist from a user.
-                  <br/>
-                  Instead, we used <b><a href="https://www.last.fm/api">Last.fm API</a></b> for taking information regarding a vinyl such as: <b>the artist</b>,
-                  <b>image for the album</b>, <b>the url of the album</b>, <b>the playcount</b> and its <b>track</b> each with its unique <b>url</b> to access in
+                  <br />
+                  Instead, we used <b><a href="https://www.last.fm/api">Last.fm API</a></b> for taking information
+                  regarding a vinyl such as: <b>the artist</b>,
+                  <b>image for the album</b>, <b>the url of the album</b>, <b>the playcount</b> and its <b>track</b>
+                  each with its unique <b>url</b> to access in
                   order to listen to the track.
-                  <br/>
-                  We used the <b><a href="https://www.last.fm/api/show/album.getInfo">Album.GetInfo Endpoint</a></b> in order to get the json format data.
-                  <br/>
-                  <p>Here's an example of the data used by us from the <b><a href="https://www.last.fm/api/show/album.getInfo">Album.GetInfo Endpoint</a></b>
+                  <br />
+                  We used the <b><a href="https://www.last.fm/api/show/album.getInfo">Album.GetInfo Endpoint</a></b> in
+                  order to get the json format data.
+                  <br />
+                <p>Here's an example of the data used by us from the <b><a
+                      href="https://www.last.fm/api/show/album.getInfo">Album.GetInfo Endpoint</a></b>
                 </p>
               </blockquote>
               <pre>
@@ -1187,28 +1228,29 @@
                   </li>
 
                   <li typeof="schema:WebPage" role="stardog-learn-sparql" resource="https://schema.org/"
-                  property="schema:citation" id="lastfm">
+                    property="schema:citation" id="lastfm">
                     <cite property="schema:name">
                       <a href="https://docs.stardog.com/tutorials/learn-sparql">Stardog - Learn SPARQL</a>
                     </cite>
                   </li>
 
                   <li typeof="schema:WebPage" role="stardog-rdf" resource="https://schema.org/"
-                  property="schema:citation" id="rdf-graph">
+                    property="schema:citation" id="rdf-graph">
                     <cite property="schema:name">
-                      <a href="https://docs.stardog.com/tutorials/rdf-graph-data-model">Stardog - RDF Graph Data Model</a>
+                      <a href="https://docs.stardog.com/tutorials/rdf-graph-data-model">Stardog - RDF Graph Data
+                        Model</a>
                     </cite>
                   </li>
 
-                  <li typeof="schema:WebPage" role="stardog" resource="https://schema.org/"
-                  property="schema:citation" id="stardog">
+                  <li typeof="schema:WebPage" role="stardog" resource="https://schema.org/" property="schema:citation"
+                    id="stardog">
                     <cite property="schema:name">
                       <a href="https://docs.stardog.com/get-started/">Stardog</a>
                     </cite>
                   </li>
 
                   <li typeof="schema:WebPage" role="stardog-studio" resource="https://schema.org/"
-                  property="schema:citation" id="stardog-studio">
+                    property="schema:citation" id="stardog-studio">
                     <cite property="schema:name">
                       <a href="https://docs.stardog.com/get-started/access-studio">Stardog Studio</a>
                     </cite>
