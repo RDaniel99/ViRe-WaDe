@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <title>VIRE Scholarly User Manual</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class='container'>
+        <article typeof="schema:ScholarlyArticle">
+            <div class="text-center">
+                <h1>VIRE Technical Report!</h1>
+            </div>
+
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link">Rusu Iulian-Daniel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Simion Andra</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Stativa Camelia-Georgiana</a>
+                </li>
+            </ul>
+            <ol>
+                <li><a href="#project_description">Project description</a></li>
+                <li><a href="#user_manual">User Manual</a></li>
+            </ol>
+
+            <div class="row mt-2">
+                <section typeof="sa:Description">
+                    <div class="card text-bg-light mb-3">
+                        <div class="card-body">
+                            <h2 class="card-title" id="project_description">1. Project description</h2>
+                            <blockquote>
+                                <p>
+                                    Web system able to "intelligently" recommend
+                                    vinyl music
+                                    records according to various criteria: preferences (such as
+                                    "I always like/love/prefer classical music, especially opera music by Rossini or
+                                    Verdi and
+                                    performed
+                                    by
+                                    Angela Gheorghiu or
+                                    Juan Diego Flórez; I sometimes like progressive rock and post-rock; I like only
+                                    metal albums
+                                    released
+                                    before 2000;
+                                    I always dislike/hate rap and hip-hop; I dislike songs produced by Flood in the last
+                                    25
+                                    years"),
+                                    past song purchases on various music stores, playlists – available online via music
+                                    streaming
+                                    services:
+                                    Last.fm and
+                                    alternative solutions – and/or locally – for instance, by uploading a JSPF/XSPF
+                                    document.
+                                </p>
+                            </blockquote>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="row mt-2">
+                <section typeof="sa:Description">
+                    <div class="card text-bg-light mb-3">
+                        <div class="card-body">
+                            <h2 class="card-title" id="user_manual">2. User Manual</h2>
+                            <blockquote>
+                                <h3>How do I access the application?</h3>
+                                <p>You can access some functionalities of the application without having a valid
+                                    account, but in order to have all the functionalities you need to create an account
+                                    and to sign-in
+                                </p>
+                                <h4><b>How can I create an account?</b></h4>
+                                <p>In order to create the account you need access the register page and enter a valid
+                                    username, email and password(all the fields are required). If this operation is
+                                    succesful you will be redirected
+                                    to the login page and from now on you can access all the functionalities.</p>
+                                <p>If you already have an account you can go to the login page</p>
+                                <img src="./userCases/login.png" alt="First Arhitecture" style="width:100%;">
+                                <p style="text-align: center;">Register panel</p>
+                                <p>If the data is not valid you will receive an error and you will need to re-enter the
+                                    data</p>
+                                <img src="./userCases/registerError.png" alt="First Arhitecture" style="width:100%;">
+                                <p style="text-align: center;">Example of error on register panel</p>
+                                <h4><b>How can I access my account?</b></h4>
+                                <p>After you succesfuly created an account you login into the application using it. In
+                                    order to do that you need to access the login page and enter there the credentianls
+                                    for your account</p>
+                                <img src="./userCases/register.png" alt="First Arhitecture" style="width:100%;">
+                                <p style="text-align: center;">Login panel</p>
+
+                            </blockquote>
+
+                            <blockquote>
+                                <h3>How can I get vinyl recommandations?</h3>
+                                <p>You can access the vinyl recommendation in multiple ways:</p>
+                                <ol>
+                                    <li><b>Based on your input</b>
+                                        <p>If you want the get recoomendations based on a multiple criterias selected by you, you will need to access the following page:</p>
+                                        <img src="./userCases/recommendation.png" alt="First Arhitecture" style="width:100%;">
+                                        <p style="text-align: center;">Recommendation panel</p>
+                                        <br/>
+                                        <p>As it can be seen there you have multiple filters like: artist preferences, genre preferences or release year preferences:</p>
+                                        <p>For example if you click on the <b>Set by artists preferences </b> button you will be prompted to select from a list of artists you like and a list of artists you dislike</p>
+                                        <img src="./userCases/artistPreferences.pnggit" alt="First Arhitecture" style="width:100%;">
+                                        <p style="text-align: center;">Recommendation panel</p>
+                                    </li>
+
+                                    <li>Based on Discogs Data</li>
+                                    <li>Based on platlists</li>
+                                </ol>
+                            </blockquote>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </div>
+
+</body>
+
+</html>
