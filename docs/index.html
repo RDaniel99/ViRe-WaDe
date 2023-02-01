@@ -175,9 +175,12 @@
               </div>
               <h3 class="card-title">Main Backend Modules</h3>
               <h3 style="color:blue;" class="card-title">Vinyls Module (GraphQL endpoint)</h3>
+              <p>This service is deployed on GCP: <a
+                  href="http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html">Deployed Service</a></p>
               <blockquote>
                 <p>
-                  This service will exponse only one endpoint. This endpoint will receive as an input a query and based
+                  This service will exponse only one endpoint.
+                  This endpoint will receive as an input a <b>query</b> and based
                   on that will return a list of possible recommandation obtained by querying DBPedia
                 </p>
                 <p>
@@ -186,11 +189,44 @@
                 <ul>
               </blockquote>
               <h4 style="color:green; font-size: larger;">
-                The arhitecture of the service is the following:
+                (Initial arhitecture) The arhitecture of the service is the following:
               </h4>
               <div class="item">
                 <img src="graphQL.PNG" alt="graphQL" style="width:100%;">
               </div>
+
+              <h4 style="color:green; font-size: larger;">
+                (Current arhitecture) The current arhitecture of the service is the following:
+              </h4>
+              <div class="item">
+                <img src="graphQLNew.PNG" alt="graphQL" style="width:100%;">
+              </div>
+              <blockquote>
+                <p>
+                  When we started the actual implementation for this api we decided to use Stardog to represent the
+                  Vinyl
+                  entity, because we can easily access the data using the Stardog API.
+                </p>
+                <p>
+                  By using the Stardog API the arhitecture is simplified because once we received the query as in input
+                  we
+                  just need to pass the query to the Stardogs API. The Stardogs API will validate the query and after
+                  that
+                  the query is going to be executed on our data source.
+                </p>
+                <p>
+                  We are calling the following Stardog endpoint: POST <a
+                    href="https://sd-28c1a0f2.stardog.cloud:5820/vinyl/query">
+                    https://sd-28c1a0f2.stardog.cloud:5820/vinyl/query</a> and in the body we are sending the query we
+                  want to execute.
+                  As a response we will receive multiple vinyl entities filtered based on the query we just sent.
+                </p>
+                <p>
+                  This module was developed using: <b>Spring Boot</b>
+                </p>
+              </blockquote>
+
+
               <h4 style="color:green; font-size: larger;">
                 Schema:
               </h4>
@@ -580,8 +616,8 @@
                     href="https://www.discogs.com/developers#page:user-collection,header:user-collection-collection-items-by-folder">this
                     API</a>)
                 </p>
-
-                <pre>
+              </blockquote>
+              <pre>
                 <code>
     "releases": [
     {
@@ -624,6 +660,7 @@
   ]
                     </code>
                   </pre>
+              <blockquote>
                 <p>From this response we will extract the following information: the album title, the list of the
                   artists, the list of genres and also the release date.
                   Using this information we will further create a sparQL query that will extract the recommendations.
@@ -651,8 +688,9 @@
                 </ol>
                 </p>
                 </p>
-                <h4 style="font-weight: bold;">Recommendation based on playlists: Last.fm</h4>
-
+              </blockquote>
+              <h4 style="font-weight: bold;">Recommendation based on playlists: Last.fm</h4>
+              <blockquote>
                 <p>
                   Also, we will suggest some vinyls to the user based on the playlists he owns on different platforms
                   We chose to get this information from the music streaming service <b><a
