@@ -33,12 +33,34 @@
         </li>
       </ul>
 
+      <p>Table of contents</p>
+      <ol>
+        <li><a href="#project_description">Project description</a></li>
+        <li><a href="#arhitecture_of_the_web_application">Architecture of the Web application</a></li>
+        <ol>
+          <li><a href="#database_arhitecture">Database arhitecture</a></li>
+          <li><a href="#main_backend_modules">Main Backend Modules</a>
+          <ol>
+            <li><a href="#vinyls_module">Vinyls Module (GraphQL endpoint)</a></li>
+            <li><a href="#recommandation_module">Recommandation Module</a></li>
+            <li><a href="#user_module">User Module</a></li>
+            <li><a href="#playlist_module">Playlist Module</a></li>
+          </ol></li>
+        </ol>
+        <li><a href="#frontend_design">Frontend Design</a></li>
+        <li><a href="#final_users">Final Users</a></li>
+        <li><a href="#external_data_sources">External Data Sources</a></li>
+        <li><a href="#ontology_and_vocabularies">Ontology and Vocabularies</a></li>
+        <li><a href="#linked_data_principles">Linked Data Principles</a></li>
+        <li><a href="#bibliography">Bibliography</a></li>
+      </ol>
+
       <!-- 1. Project description -->
       <div class="row mt-2">
         <section typeof="sa:Description">
           <div class="card text-bg-light mb-3">
             <div class="card-body">
-              <h2 class="card-title">1. Project description</h2>
+              <h2 class="card-title" id="project_description">1. Project description</h2>
               <blockquote>
                 <p>
                   Build a (micro-)service Web system able to "intelligently" recommend – by exposing a SPARQL endpoint –
@@ -75,7 +97,7 @@
         <section typeof="sa:Arhitecture">
           <div class="card text-bg-light mb-3">
             <div class="card-body">
-              <h2 class="card-title">2. Architecture of the Web application</h2>
+              <h2 class="card-title" id="arhitecture_of_the_web_application">2. Architecture of the Web application</h2>
               <blockquote>
                 <p>High Level Arhitecture from first draft to final version</p>
               </blockquote>
@@ -112,7 +134,7 @@
                   <span class="sr-only">Next</span>
                 </a>
               </div>
-              <h3 class="card-title">Database arhitecture</h3>
+              <h3 class="card-title" id="database_arhitecture">Database arhitecture</h3>
 
               <div class="item">
                 <img src="db.png" alt="database" style="width:100%;">
@@ -173,8 +195,8 @@
                   </code>
                 </pre>
               </div>
-              <h3 class="card-title">Main Backend Modules</h3>
-              <h3 style="color:blue;" class="card-title">Vinyls Module (GraphQL endpoint)</h3>
+              <h3 class="card-title" id="main_backend_modules">Main Backend Modules</h3>
+              <h3 style="color:blue;" class="card-title" id="vinyls_module">Vinyls Module (GraphQL endpoint)</h3>
               <p>This service is deployed on <b>Google Cloud Platform</b>: <a
                   href="http://recommendationendpoints.uc.r.appspot.com/recommendationSparQL">Deployed Service</a></p>
               <p>
@@ -247,7 +269,7 @@
               </div>
               </blockquote>
               </ul>
-              <h3 style="color:blue;" class="card-title">Recommandation Module</h3>
+              <h3 style="color:blue;" class="card-title" id="recommandation_module">Recommandation Module</h3>
               <h4 style="color:green; font-size: larger;" class="card-title">Overview</h4>
               <p>This service is deployed on <b>Google Cloud Platform</b>: <a
                   href="http://recommandationapi-374817.ew.r.appspot.com/swagger-ui/index.html">Deployed Service</a></p>
@@ -509,7 +531,7 @@
               </p>
 
 
-              <h3 class="card-title">User Module</h3>
+              <h3 class="card-title" id="user_module">User Module</h3>
 
               <p>
                 This module role is to maintain the functionality needed for users like login, register etc.
@@ -524,7 +546,7 @@
                 Open API: <a href="./user-service-swagger/index.html">Here</a>
               </p>
 
-              <h3 class="card-title">Playlist Module</h3>
+              <h3 class="card-title" id="playlist_module">Playlist Module</h3>
               <p>
                 This module role is to maintain the functionality needed for playlists like create, edit etc.
               </p>
@@ -546,7 +568,7 @@
         <section typeof="sa:UiDesign">
           <div class="card text-bg-light mb-3">
             <div class="card-body">
-              <h2 class="card-title">3. Frontend Design</h2>
+              <h2 class="card-title" id="frontend_design">3. Frontend Design</h2>
               <blockquote>
                 <p>
                   The fronted is deployed on Heroku: <a
@@ -740,7 +762,7 @@
         <section typeof="sa:UseCase">
           <div class="card text-bg-light mb-3">
             <div class="card-body">
-              <h2 class="card-title">4. Final Users</h2>
+              <h2 class="card-title" id="final_users">4. Final Users</h2>
 
               <h3 class="card-title">User Description</h3>
               <blockquote>
@@ -771,7 +793,7 @@
         <section typeof="sa:ExternalDataSource">
           <div class="card text-bg-light mb-3">
             <div class="card-body">
-              <h2 class="card-title">5. External Data Sources</h2>
+              <h2 class="card-title" id="external_data_sources">5. External Data Sources</h2>
               <blockquote>
                 <p>
                   We'll be using some external APIs in order to make vinyl recommendation to the user.
@@ -978,7 +1000,7 @@
         <section typeof="sa:Vocabulary">
           <div class="card text-bg-light mb-3">
             <div class="card-body">
-              <h2 class="card-title">6. Ontology and Vocabularies</h2>
+              <h2 class="card-title" id="ontology_and_vocabularies">6. Ontology and Vocabularies</h2>
               <blockquote>
                 <p>We'll make use of the following ontology and vocabularies in order to model our business case. Some
                   of
@@ -1019,7 +1041,7 @@
         <section typeof="sa:LinkedDataPrinciples">
           <div class="card text-bg-light mb-3">
             <div class="card-body">
-              <h2 class="card-title">7. Linked Data Principles</h2>
+              <h2 class="card-title" id="linked_data_principles">7. Linked Data Principles</h2>
               <blockquote>
                 <p>
                   <b>Linked Data</b> refers to a set of recommended practices for publishing structured data on the Web.
@@ -1055,7 +1077,7 @@
         <section typeof="sa:Bibliography">
           <div class="card text-bg-light mb-3">
             <div class="card-body">
-              <h2 class="card-title">8. Bibliography</h2>
+              <h2 class="card-title" id="bibliography">8. Bibliography</h2>
               <blockquote>
                 <ol>
                   <li typeof="schema:WebPage" role="doc-biblioentry" resource="https://www.w3.org/TR/sparql11-protocol/"
